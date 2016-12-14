@@ -160,6 +160,15 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onRateChanged(RTC::UniqueId ec_
 }
 */
 
+void ManipulatorMotionGeneratorRTC::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
+{
+	   m_ManipulatorCommonInterface_MiddleLevel;
+}
+
+void ManipulatorMotionGeneratorRTC::getCurrentRobotJointInfo(const Manipulation::RobotIdentifier& robotID, Manipulation::RobotJointInfo_out robotJoint){
+	   JARA_ARM::JointPos* pos = new JARA_ARM::JointPos();
+	   m_ManipulatorCommonInterface_Common->getFeedbackPosJoint(pos);
+}
 
 
 extern "C"

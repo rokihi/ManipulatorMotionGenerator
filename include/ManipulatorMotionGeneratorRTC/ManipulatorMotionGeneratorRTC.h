@@ -219,6 +219,8 @@ class ManipulatorMotionGeneratorRTC
    */
   // virtual RTC::ReturnCode_t onRateChanged(RTC::UniqueId ec_id);
 
+   void followManipPlan(const Manipulation::ManipulationPlan& manipPlan);
+   void getCurrentRobotJointInfo(const Manipulation::RobotIdentifier& robotID, Manipulation::RobotJointInfo_out robotJoint);
 
  protected:
   // <rtc-template block="protected_attribute">

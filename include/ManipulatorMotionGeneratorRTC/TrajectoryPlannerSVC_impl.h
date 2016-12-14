@@ -11,9 +11,12 @@
 
 #include "TrajectoryPlannerSkel.h"
 
+#include "ManipulatorMotionGeneratorRTC.h"
 #ifndef TRAJECTORYPLANNERSVC_IMPL_H
 #define TRAJECTORYPLANNERSVC_IMPL_H
  
+class ManipulatorMotionGeneratorRTC;
+
 /*!
  * @class CurrentStateServiceSVC_impl
  * Example class implementing IDL interface Manipulation::CurrentStateService
@@ -26,6 +29,7 @@ class CurrentStateServiceSVC_impl
    // Make sure all instances are built on the heap by making the
    // destructor non-public
    //virtual ~CurrentStateServiceSVC_impl();
+	ManipulatorMotionGeneratorRTC* m_rtcPtr;
 
  public:
   /*!
@@ -38,6 +42,8 @@ class CurrentStateServiceSVC_impl
    virtual ~CurrentStateServiceSVC_impl();
 
    // attributes and operations
+
+   void setCompPtr(ManipulatorMotionGeneratorRTC* ptr){m_rtcPtr=ptr;}
    void getCurrentState(Manipulation::RobotJointInfo_out robotJoint);
 
 };
@@ -54,6 +60,7 @@ class MotionGeneratorServiceSVC_impl
    // Make sure all instances are built on the heap by making the
    // destructor non-public
    //virtual ~MotionGeneratorServiceSVC_impl();
+	ManipulatorMotionGeneratorRTC* m_rtcPtr;
 
  public:
   /*!
@@ -66,6 +73,7 @@ class MotionGeneratorServiceSVC_impl
    virtual ~MotionGeneratorServiceSVC_impl();
 
    // attributes and operations
+   void setCompPtr(ManipulatorMotionGeneratorRTC* ptr){m_rtcPtr=ptr;}
    void followManipPlan(const Manipulation::ManipulationPlan& manipPlan);
    void getCurrentRobotJointInfo(const Manipulation::RobotIdentifier& robotID, Manipulation::RobotJointInfo_out robotJoint);
 
