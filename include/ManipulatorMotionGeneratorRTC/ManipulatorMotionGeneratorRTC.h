@@ -258,9 +258,6 @@ class ManipulatorMotionGeneratorRTC
   /*!
    */
   RTC::CorbaPort m_MotionGeneratorServicePort;
-  /*!
-   */
-  RTC::CorbaPort m_CurrentStateServicePort;
   
   // </rtc-template>
 
@@ -269,9 +266,6 @@ class ManipulatorMotionGeneratorRTC
   /*!
    */
   MotionGeneratorServiceSVC_impl m_MotionGeneratorService;
-  /*!
-   */
-  CurrentStateServiceSVC_impl m_CurrentStateService;
   
   // </rtc-template>
 

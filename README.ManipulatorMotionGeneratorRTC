@@ -15,7 +15,6 @@
 #   --consumer=ManipulatorCommonInterface_Common:ManipulatorCommonInterface_Common:JARA_ARM::ManipulatorCommonInterface_Common 
 #   --consumer=ManipulatorCommonInterface_MiddleLevel:ManipulatorCommonInterface_MiddleLevel:JARA_ARM::ManipulatorCommonInterface_Middle 
 #   --service=MotionGeneratorService:MotionGeneratorService:Manipulation::MotionGeneratorService 
-#   --service=CurrentStateService:CurrentStateService:Manipulation::CurrentStateService 
 
 
 ======================================================================
@@ -116,18 +115,6 @@ Lang Type:
 		[Service Provider Interfaces]
 		Name:          MotionGeneratorService
 		Type:          Manipulation::MotionGeneratorService
-		Description:   
-		Argument:      
-		Return Value:  
-		Exception:     
-		PreCondition:  
-		PostCondition: 
-	PortName:    CurrentStateService
-	Description: 
-	Interface:   
-		[Service Provider Interfaces]
-		Name:          CurrentStateService
-		Type:          Manipulation::CurrentStateService
 		Description:   
 		Argument:      
 		Return Value:  

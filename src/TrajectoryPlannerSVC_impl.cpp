@@ -8,33 +8,6 @@
 #include "TrajectoryPlannerSVC_impl.h"
 
 /*
- * Example implementational code for IDL interface Manipulation::CurrentStateService
- */
-CurrentStateServiceSVC_impl::CurrentStateServiceSVC_impl()
-{
-  // Please add extra destructor code here.
-}
-
-
-CurrentStateServiceSVC_impl::~CurrentStateServiceSVC_impl()
-{
-  // Please add extra destructor code here.
-}
-
-
-/*
- * Methods corresponding to IDL attributes and operations
- */
-void CurrentStateServiceSVC_impl::getCurrentState(Manipulation::RobotJointInfo_out robotJoint)
-{
-
-}
-
-
-
-// End of example implementational code
-
-/*
  * Example implementational code for IDL interface Manipulation::MotionGeneratorService
  */
 MotionGeneratorServiceSVC_impl::MotionGeneratorServiceSVC_impl()

@@ -18,37 +18,6 @@
 class ManipulatorMotionGeneratorRTC;
 
 /*!
- * @class CurrentStateServiceSVC_impl
- * Example class implementing IDL interface Manipulation::CurrentStateService
- */
-class CurrentStateServiceSVC_impl
- : public virtual POA_Manipulation::CurrentStateService,
-   public virtual PortableServer::RefCountServantBase
-{
- private:
-   // Make sure all instances are built on the heap by making the
-   // destructor non-public
-   //virtual ~CurrentStateServiceSVC_impl();
-	ManipulatorMotionGeneratorRTC* m_rtcPtr;
-
- public:
-  /*!
-   * @brief standard constructor
-   */
-   CurrentStateServiceSVC_impl();
-  /*!
-   * @brief destructor
-   */
-   virtual ~CurrentStateServiceSVC_impl();
-
-   // attributes and operations
-
-   void setCompPtr(ManipulatorMotionGeneratorRTC* ptr){m_rtcPtr=ptr;}
-   void getCurrentState(Manipulation::RobotJointInfo_out robotJoint);
-
-};
-
-/*!
  * @class MotionGeneratorServiceSVC_impl
  * Example class implementing IDL interface Manipulation::MotionGeneratorService
  */

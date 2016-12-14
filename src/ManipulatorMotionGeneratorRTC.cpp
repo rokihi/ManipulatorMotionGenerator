@@ -37,8 +37,7 @@ ManipulatorMotionGeneratorRTC::ManipulatorMotionGeneratorRTC(RTC::Manager* manag
   : RTC::DataFlowComponentBase(manager),
     m_ManipulatorCommonInterface_CommonPort("ManipulatorCommonInterface_Common"),
     m_ManipulatorCommonInterface_MiddleLevelPort("ManipulatorCommonInterface_MiddleLevel"),
-    m_MotionGeneratorServicePort("MotionGeneratorService"),
-    m_CurrentStateServicePort("CurrentStateService")
+    m_MotionGeneratorServicePort("MotionGeneratorService")
 
     // </rtc-template>
 {
@@ -63,7 +62,6 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onInitialize()
   
   // Set service provider to Ports
   m_MotionGeneratorServicePort.registerProvider("MotionGeneratorService", "Manipulation::MotionGeneratorService", m_MotionGeneratorService);
-  m_CurrentStateServicePort.registerProvider("CurrentStateService", "Manipulation::CurrentStateService", m_CurrentStateService);
   
   // Set service consumers to Ports
   m_ManipulatorCommonInterface_CommonPort.registerConsumer("ManipulatorCommonInterface_Common", "JARA_ARM::ManipulatorCommonInterface_Common", m_ManipulatorCommonInterface_Common);
@@ -73,7 +71,6 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onInitialize()
   addPort(m_ManipulatorCommonInterface_CommonPort);
   addPort(m_ManipulatorCommonInterface_MiddleLevelPort);
   addPort(m_MotionGeneratorServicePort);
-  addPort(m_CurrentStateServicePort);
   
   // </rtc-template>
 
