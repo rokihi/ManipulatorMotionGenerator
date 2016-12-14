@@ -10,11 +10,6 @@
 #ifndef MANIPULATORMOTIONGENERATORRTC_H
 #define MANIPULATORMOTIONGENERATORRTC_H
 
-#include <rtm/Manager.h>
-#include <rtm/DataFlowComponentBase.h>
-#include <rtm/CorbaPort.h>
-#include <rtm/DataInPort.h>
-#include <rtm/DataOutPort.h>
 #include <rtm/idl/BasicDataTypeSkel.h>
 #include <rtm/idl/ExtendedDataTypesSkel.h>
 #include <rtm/idl/InterfaceDataTypesSkel.h>
@@ -31,6 +26,16 @@
 #include "ManipulatorCommonInterface_MiddleLevelStub.h"
 
 // </rtc-template>
+
+// Service Consumer stub headers
+// <rtc-template block="port_stub_h">
+// </rtc-template>
+
+#include <rtm/Manager.h>
+#include <rtm/DataFlowComponentBase.h>
+#include <rtm/CorbaPort.h>
+#include <rtm/DataInPort.h>
+#include <rtm/DataOutPort.h>
 
 using namespace RTC;
 
@@ -251,6 +256,9 @@ class ManipulatorMotionGeneratorRTC
   /*!
    */
   RTC::CorbaPort m_MotionGeneratorServicePort;
+  /*!
+   */
+  RTC::CorbaPort m_CurrentStateServicePort;
   
   // </rtc-template>
 
@@ -259,6 +267,9 @@ class ManipulatorMotionGeneratorRTC
   /*!
    */
   MotionGeneratorServiceSVC_impl m_MotionGeneratorService;
+  /*!
+   */
+  CurrentStateServiceSVC_impl m_CurrentStateService;
   
   // </rtc-template>
 

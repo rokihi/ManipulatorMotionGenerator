@@ -1,4 +1,4 @@
-set(idls ${CMAKE_CURRENT_SOURCE_DIR}/TrajectoryPlanner.idl ${CMAKE_CURRENT_SOURCE_DIR}/ManipulatorCommonInterface_Common.idl ${CMAKE_CURRENT_SOURCE_DIR}/ManipulatorCommonInterface_MiddleLevel.idl ${CMAKE_CURRENT_SOURCE_DIR}/ManipulatorCommonInterface_DataTypes.idl ${CMAKE_CURRENT_SOURCE_DIR}/BasicDataType.idl ${CMAKE_CURRENT_SOURCE_DIR}/BasicDataType.idl ${CMAKE_CURRENT_SOURCE_DIR}/ExtendedDataTypes.idl ${CMAKE_CURRENT_SOURCE_DIR}/InterfaceDataTypes.idl )
+set(idls ${CMAKE_CURRENT_SOURCE_DIR}/TrajectoryPlanner.idl ${CMAKE_CURRENT_SOURCE_DIR}/ManipulatorCommonInterface_Common.idl ${CMAKE_CURRENT_SOURCE_DIR}/ManipulatorCommonInterface_MiddleLevel.idl ${CMAKE_CURRENT_SOURCE_DIR}/ManipulatorCommonInterface_DataTypes.idl ${CMAKE_CURRENT_SOURCE_DIR}/BasicDataType.idl ${CMAKE_CURRENT_SOURCE_DIR}/ExtendedDataTypes.idl ${CMAKE_CURRENT_SOURCE_DIR}/InterfaceDataTypes.idl )
 
 install(FILES ${idls} DESTINATION ${INC_INSTALL_DIR}/idl
     COMPONENT idl)
@@ -49,7 +49,7 @@ endmacro(OPENRTM_COMPILE_IDL_FILES)
 
 OPENRTM_COMPILE_IDL_FILES(${idls})
 set(ALL_IDL_SRCS ${ALL_IDL_SRCS} PARENT_SCOPE)
-FILTER_LIST("${ALL_IDL_SRCS}" "hh$" idl_headers)
+FILTER_LIST(ALL_IDL_SRCS "hh$" idl_headers)
 install(FILES ${idl_headers}
     DESTINATION ${INC_INSTALL_DIR}/${PROJECT_NAME_LOWER}/idl
     COMPONENT headers)

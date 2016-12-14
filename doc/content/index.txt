@@ -119,6 +119,7 @@ Name            Type        Data type                      Purpose
 ManipulatorCommonInterface_Common ServicePort JARA_ARM::ManipulatorCommonInterface_Common 
 ManipulatorCommonInterface_MiddleLevel ServicePort JARA_ARM::ManipulatorCommonInterface_Middle 
 MotionGeneratorService ServicePort Manipulation::MotionGeneratorService 
+CurrentStateService ServicePort Manipulation::CurrentStateService 
 =============== =========== ============================== =======
 
 Examples

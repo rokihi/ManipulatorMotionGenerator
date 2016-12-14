@@ -10,11 +10,12 @@
 #   --module-desc='ModuleDescription' --module-version=1.0.0 --module-vendor=ogata-lab 
 #   --module-category=Category --module-comp-type=STATIC 
 #   --module-act-type=PERIODIC --module-max-inst=1 
-#   --service-idl=C:\Users\ogatalab\Documents\ManipulationPlanner_OMPL\idl\TrajectoryPlanner.idl 
-#   --consumer-idl=C:\Users\ogatalab\Desktop\orochirtcs\orochirtcs\ManipulatorCommonTest\idl\ManipulatorCommonInterface_Common.idl --consumer-idl=C:\Users\ogatalab\Desktop\orochirtcs\orochirtcs\ManipulatorCommonTest\idl\ManipulatorCommonInterface_MiddleLevel.idl 
+#   --service-idl=/home/tao/workspace/ManipulatorMotionGenerator/idl/TrajectoryPlanner.idl 
+#   --consumer-idl=/home/tao/workspace/ManipulatorMotionGenerator/idl/ManipulatorCommonInterface_Common.idl --consumer-idl=/home/tao/workspace/ManipulatorMotionGenerator/idl/ManipulatorCommonInterface_MiddleLevel.idl 
 #   --consumer=ManipulatorCommonInterface_Common:ManipulatorCommonInterface_Common:JARA_ARM::ManipulatorCommonInterface_Common 
 #   --consumer=ManipulatorCommonInterface_MiddleLevel:ManipulatorCommonInterface_MiddleLevel:JARA_ARM::ManipulatorCommonInterface_Middle 
 #   --service=MotionGeneratorService:MotionGeneratorService:Manipulation::MotionGeneratorService 
+#   --service=CurrentStateService:CurrentStateService:Manipulation::CurrentStateService 
 
 
 ======================================================================
@@ -115,6 +116,18 @@ Lang Type:
 		[Service Provider Interfaces]
 		Name:          MotionGeneratorService
 		Type:          Manipulation::MotionGeneratorService
+		Description:   
+		Argument:      
+		Return Value:  
+		Exception:     
+		PreCondition:  
+		PostCondition: 
+	PortName:    CurrentStateService
+	Description: 
+	Interface:   
+		[Service Provider Interfaces]
+		Name:          CurrentStateService
+		Type:          Manipulation::CurrentStateService
 		Description:   
 		Argument:      
 		Return Value:  
