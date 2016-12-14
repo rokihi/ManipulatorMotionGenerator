@@ -101,12 +101,13 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onShutdown(RTC::UniqueId ec_id)
 }
 */
 
-/*
+
 RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onActivated(RTC::UniqueId ec_id)
 {
+  m_MotionGeneratorService.setCompPtr(this);
   return RTC::RTC_OK;
 }
-*/
+
 
 /*
 RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onDeactivated(RTC::UniqueId ec_id)
