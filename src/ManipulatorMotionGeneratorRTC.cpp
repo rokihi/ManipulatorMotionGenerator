@@ -160,7 +160,11 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onRateChanged(RTC::UniqueId ec_
 
 void ManipulatorMotionGeneratorRTC::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
 {
-	   m_ManipulatorCommonInterface_MiddleLevel;
+	   for(int i=0; i<maniPlan.size(); i++){
+		for(int j=0; j<maniPlan[i].jointInfoSeq.size(); j++){
+		   m_ManipulatorCommonInterface_MiddleLevel->movePTPJointAbs(maniPlan[i].jointInfoSeq[j].jointAngle);	   
+		 }		
+        }
 }
 
 void ManipulatorMotionGeneratorRTC::getCurrentRobotJointInfo(const Manipulation::RobotIdentifier& robotID, Manipulation::RobotJointInfo_out robotJoint){
