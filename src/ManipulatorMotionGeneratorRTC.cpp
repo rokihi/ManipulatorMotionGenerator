@@ -161,11 +161,13 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onRateChanged(RTC::UniqueId ec_
 
 void ManipulatorMotionGeneratorRTC::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
 {
-	   for(int i=0; i<manipPlan.robotJointInfoSeq.length(); i++){
-           for(int j=0; j<manipPlan.robotJointInfoSeq[i].jointInfoSeq.length(); j++){
-		       m_ManipulatorCommonInterface_MiddleLevel->movePTPJointAbs(manipPlan.robotJointInfoSeq[i].jointInfoSeq[j].jointAngle);
-           }
-       }
+	JARA_ARM::JointPos_var jpos = new JARA_ARM::JointPos();
+	for (int i = 0; i<manipPlan.robotJointInfoSeq.length(); i++){
+		for(int j=0; j<manipPlan.robotJointInfoSeq[i].jointInfoSeq.length(); j++){
+			jpos[j] = manipPlan.robotJointInfoSeq[i].jointInfoSeq[j].jointAngle;
+		}
+		m_ManipulatorCommonInterface_MiddleLevel->movePTPJointAbs(jpos);
+	}
 }
 
 void ManipulatorMotionGeneratorRTC::getCurrentRobotJointInfo(const Manipulation::RobotIdentifier& robotID, Manipulation::RobotJointInfo_out robotJoint){
