@@ -35,8 +35,8 @@ static const char* manipulatormotiongeneratorrtc_spec[] =
 ManipulatorMotionGeneratorRTC::ManipulatorMotionGeneratorRTC(RTC::Manager* manager)
     // <rtc-template block="initializer">
   : RTC::DataFlowComponentBase(manager),
-    m_ManipulatorCommonInterface_CommonPort("ManipulatorCommonInterface_Common"),
-    m_ManipulatorCommonInterface_MiddleLevelPort("ManipulatorCommonInterface_MiddleLevel"),
+    m_manipulatorCommonInterface_CommonPort("manipulatorCommonInterfaceCommon"),
+    m_manipulatorCommonInterface_MiddleLevelPort("manipulatorCommonInterfaceMiddle"),
     m_MotionGeneratorServicePort("MotionGeneratorService")
 
     // </rtc-template>
@@ -64,12 +64,12 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onInitialize()
   m_MotionGeneratorServicePort.registerProvider("MotionGeneratorService", "Manipulation::MotionGeneratorService", m_MotionGeneratorService);
   
   // Set service consumers to Ports
-  m_ManipulatorCommonInterface_CommonPort.registerConsumer("ManipulatorCommonInterface_Common", "JARA_ARM::ManipulatorCommonInterface_Common", m_ManipulatorCommonInterface_Common);
-  m_ManipulatorCommonInterface_MiddleLevelPort.registerConsumer("ManipulatorCommonInterface_MiddleLevel", "JARA_ARM::ManipulatorCommonInterface_Middle", m_ManipulatorCommonInterface_MiddleLevel);
+  m_manipulatorCommonInterface_CommonPort.registerConsumer("JARA_ARM_ManipulatorCommonInterface_Common", "JARA_ARM::ManipulatorCommonInterface_Common", m_manipulatorCommonInterface_Common);
+  m_manipulatorCommonInterface_MiddleLevelPort.registerConsumer("JARA_ARM_ManipulatorCommonInterface_Middle", "JARA_ARM::ManipulatorCommonInterface_Middle", m_manipulatorCommonInterface_MiddleLevel);
   
   // Set CORBA Service Ports
-  addPort(m_ManipulatorCommonInterface_CommonPort);
-  addPort(m_ManipulatorCommonInterface_MiddleLevelPort);
+  addPort(m_manipulatorCommonInterface_CommonPort);
+  addPort(m_manipulatorCommonInterface_MiddleLevelPort);
   addPort(m_MotionGeneratorServicePort);
   
   // </rtc-template>
@@ -161,18 +161,28 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onRateChanged(RTC::UniqueId ec_
 
 void ManipulatorMotionGeneratorRTC::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
 {
+	
+	  for(int i =0;i<manipPlan.robotJointInfoSeq.length(); i++){
+		  for(int j=0;j<6;j++){
+			  std::cout << manipPlan.robotJointInfoSeq[i].jointInfoSeq[j].jointAngle << " ";
+		  }
+		  std::cout <<std::endl;
+	  }
+
 	JARA_ARM::JointPos_var jpos = new JARA_ARM::JointPos();
+    m_manipulatorCommonInterface_Common->getFeedbackPosJoint(jpos);
+
 	for (int i = 0; i<manipPlan.robotJointInfoSeq.length(); i++){
 		for(int j=0; j<manipPlan.robotJointInfoSeq[i].jointInfoSeq.length(); j++){
 			jpos[j] = manipPlan.robotJointInfoSeq[i].jointInfoSeq[j].jointAngle;
 		}
-		m_ManipulatorCommonInterface_MiddleLevel->movePTPJointAbs(jpos);
+		m_manipulatorCommonInterface_MiddleLevel->movePTPJointAbs(jpos);
 	}
 }
 
 void ManipulatorMotionGeneratorRTC::getCurrentRobotJointInfo(const Manipulation::RobotIdentifier& robotID, Manipulation::RobotJointInfo_out robotJoint){
 	   JARA_ARM::JointPos* pos = new JARA_ARM::JointPos();
-	   m_ManipulatorCommonInterface_Common->getFeedbackPosJoint(pos);
+	   m_manipulatorCommonInterface_Common->getFeedbackPosJoint(pos);
 	   for(int i=0; i<robotJoint->jointInfoSeq.length(); i++){
 		   robotJoint->jointInfoSeq[i].jointAngle = (*pos)[i];
 	   }

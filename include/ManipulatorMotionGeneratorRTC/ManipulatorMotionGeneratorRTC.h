@@ -251,10 +251,10 @@ class ManipulatorMotionGeneratorRTC
   // <rtc-template block="corbaport_declare">
   /*!
    */
-  RTC::CorbaPort m_ManipulatorCommonInterface_CommonPort;
+  RTC::CorbaPort m_manipulatorCommonInterface_CommonPort;
   /*!
    */
-  RTC::CorbaPort m_ManipulatorCommonInterface_MiddleLevelPort;
+  RTC::CorbaPort m_manipulatorCommonInterface_MiddleLevelPort;
   /*!
    */
   RTC::CorbaPort m_MotionGeneratorServicePort;
@@ -273,10 +273,10 @@ class ManipulatorMotionGeneratorRTC
   // <rtc-template block="consumer_declare">
   /*!
    */
-  RTC::CorbaConsumer<JARA_ARM::ManipulatorCommonInterface_Common> m_ManipulatorCommonInterface_Common;
+  RTC::CorbaConsumer<JARA_ARM::ManipulatorCommonInterface_Common> m_manipulatorCommonInterface_Common;
   /*!
    */
-  RTC::CorbaConsumer<JARA_ARM::ManipulatorCommonInterface_Middle> m_ManipulatorCommonInterface_MiddleLevel;
+  RTC::CorbaConsumer<JARA_ARM::ManipulatorCommonInterface_Middle> m_manipulatorCommonInterface_MiddleLevel;
   
   // </rtc-template>
 
