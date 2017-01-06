@@ -218,7 +218,8 @@ class ManipulatorMotionGeneratorRTC
    * 
    */
   // virtual RTC::ReturnCode_t onRateChanged(RTC::UniqueId ec_id);
-
+   void openGripper();
+   void moveGripper(const int per);
    void followManipPlan(const Manipulation::ManipulationPlan& manipPlan);
    void getCurrentRobotJointInfo(const Manipulation::RobotIdentifier& robotID, Manipulation::RobotJointInfo_out robotJoint);
 

@@ -45,6 +45,8 @@ class MotionGeneratorServiceSVC_impl
    void setCompPtr(ManipulatorMotionGeneratorRTC* ptr){m_rtcPtr=ptr;}
    void followManipPlan(const Manipulation::ManipulationPlan& manipPlan);
    void getCurrentRobotJointInfo(const Manipulation::RobotIdentifier& robotID, Manipulation::RobotJointInfo_out robotJoint);
+   void openGripper();
+   void moveGripper(CORBA::Long percentage);
 
 };
 

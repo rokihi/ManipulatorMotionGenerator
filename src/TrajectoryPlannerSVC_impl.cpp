@@ -34,7 +34,15 @@ void MotionGeneratorServiceSVC_impl::getCurrentRobotJointInfo(const Manipulation
 	m_rtcPtr->getCurrentRobotJointInfo(robotID,robotJoint);
 }
 
+void MotionGeneratorServiceSVC_impl::openGripper()
+{
+	m_rtcPtr->openGripper();
+}
 
+void MotionGeneratorServiceSVC_impl::moveGripper(CORBA::Long percentage)
+{
+	m_rtcPtr->moveGripper(percentage);
+}
 
 // End of example implementational code
 
