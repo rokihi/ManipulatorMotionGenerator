@@ -64,8 +64,8 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onInitialize()
   m_MotionGeneratorServicePort.registerProvider("MotionGeneratorService", "Manipulation::MotionGeneratorService", m_MotionGeneratorService);
   
   // Set service consumers to Ports
-  m_manipulatorCommonInterface_CommonPort.registerConsumer("manipulatorCommonInterface_Common", "JARA_ARM::ManipulatorCommonInterface_Common", m_manipulatorCommonInterface_Common);
-  m_manipulatorCommonInterface_MiddleLevelPort.registerConsumer("manipulatorCommonInterface_MiddleLevel", "JARA_ARM::ManipulatorCommonInterface_Middle", m_manipulatorCommonInterface_MiddleLevel);
+  m_manipulatorCommonInterface_CommonPort.registerConsumer("JARA_ARM_ManipulatorCommonInterface_Common", "JARA_ARM::ManipulatorCommonInterface_Common", m_manipulatorCommonInterface_Common);
+  m_manipulatorCommonInterface_MiddleLevelPort.registerConsumer("JARA_ARM_ManipulatorCommonInterface_Middle", "JARA_ARM::ManipulatorCommonInterface_Middle", m_manipulatorCommonInterface_MiddleLevel);
   
   // Set CORBA Service Ports
   addPort(m_manipulatorCommonInterface_CommonPort);
