@@ -45,6 +45,10 @@ class Manipulation_MotionGeneratorServiceSVC_impl
    Manipulation::ReturnValue* followManipPlan(const Manipulation::ManipulationPlan& manipPlan);
    Manipulation::ReturnValue* getCurrentRobotJointAngles(Manipulation::JointAngleSeq_out jointAngles);
    void setCompPtr(ManipulatorMotionGeneratorRTC* ptr){m_rtcPtr=ptr;}
+
+   void openGripper();
+   void moveGripper(CORBA::Long percentage);
+
 };
 
 
