@@ -161,9 +161,9 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onRateChanged(RTC::UniqueId ec_
 
 Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
 {
-	  for(int i =0;i<manipPlan.robotJointInfoSeq.length(); i++){
+	  for(int i =0;i<manipPlan.manipPath.length(); i++){
 		  for(int j=0;j<6;j++){
-			  std::cout << manipPlan.robotJointInfoSeq[i].jointInfoSeq[j].jointAngle << " ";
+			  std::cout << manipPlan.manipPath[i][j].data << " ";
 		  }
 		  std::cout <<std::endl;
 	  }
@@ -171,9 +171,9 @@ Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::followManipPlan(const 
 	JARA_ARM::JointPos_var jpos = new JARA_ARM::JointPos();
     m_manipulatorCommonInterface_Common->getFeedbackPosJoint(jpos);
 
-	for (int i = 0; i<manipPlan.robotJointInfoSeq.length(); i++){
-		for(int j=0; j<manipPlan.robotJointInfoSeq[i].jointInfoSeq.length(); j++){
-			jpos[j] = manipPlan.robotJointInfoSeq[i].jointInfoSeq[j].jointAngle;
+	for (int i = 0; i<manipPlan.manipPath.length(); i++){
+		for(int j=0; j<manipPlan.manipPath[i].length(); j++){
+			jpos[j] = manipPlan.manipPath[i][j].data;
 		}
 		m_manipulatorCommonInterface_MiddleLevel->movePTPJointAbs(jpos);
 	}

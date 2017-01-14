@@ -265,7 +265,7 @@ class ManipulatorMotionGeneratorRTC
   // <rtc-template block="service_declare">
   /*!
    */
-  MotionGeneratorServiceSVC_impl m_MotionGeneratorService;
+  Manipulation_MotionGeneratorServiceSVC_impl m_MotionGeneratorService;
   
   // </rtc-template>
 

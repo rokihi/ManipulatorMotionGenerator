@@ -11,6 +11,8 @@
 
 #include "TrajectoryPlannerSkel.h"
 
+
+#include "ManipulatorMotionGeneratorRTC.h"
 #ifndef TRAJECTORYPLANNERSVC_IMPL_H
 #define TRAJECTORYPLANNERSVC_IMPL_H
 class ManipulatorMotionGeneratorRTC;
@@ -33,7 +35,7 @@ class Manipulation_MotionGeneratorServiceSVC_impl
   /*!
    * @brief standard constructor
    */
-   MotionGeneratorServiceSVC_impl();
+   Manipulation_MotionGeneratorServiceSVC_impl();
   /*!
    * @brief destructor
    */
