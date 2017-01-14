@@ -108,8 +108,8 @@ ManipulatorMotionGeneratorRTCは ``ManipulatorMotionGeneratorRTCComp`` を実行
 =============== =========== ============================== ====
 ポート名        ポート型    データ型                       意味
 =============== =========== ============================== ====
-ManipulatorCommonInterface_Common ServicePort JARA_ARM::ManipulatorCommonInterface_Common 
-ManipulatorCommonInterface_MiddleLevel ServicePort JARA_ARM::ManipulatorCommonInterface_Middle 
+manipulatorCommonInterface_Common ServicePort JARA_ARM::ManipulatorCommonInterface_Common 
+manipulatorCommonInterface_MiddleLevel ServicePort JARA_ARM::ManipulatorCommonInterface_Middle 
 MotionGeneratorService ServicePort Manipulation::MotionGeneratorService 
 =============== =========== ============================== ====
 

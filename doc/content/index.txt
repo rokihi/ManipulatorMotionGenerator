@@ -116,8 +116,8 @@ The ports provided by the component are described below:
 =============== =========== ============================== =======
 Name            Type        Data type                      Purpose
 =============== =========== ============================== =======
-ManipulatorCommonInterface_Common ServicePort JARA_ARM::ManipulatorCommonInterface_Common 
-ManipulatorCommonInterface_MiddleLevel ServicePort JARA_ARM::ManipulatorCommonInterface_Middle 
+manipulatorCommonInterface_Common ServicePort JARA_ARM::ManipulatorCommonInterface_Common 
+manipulatorCommonInterface_MiddleLevel ServicePort JARA_ARM::ManipulatorCommonInterface_Middle 
 MotionGeneratorService ServicePort Manipulation::MotionGeneratorService 
 =============== =========== ============================== =======
 

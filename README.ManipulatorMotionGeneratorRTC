@@ -85,11 +85,11 @@ Lang Type:
     Service Port definition
 ======================================================================
 # <rtc-template block="serviceport">
-	PortName:    ManipulatorCommonInterface_Common
+	PortName:    manipulatorCommonInterface_Common
 	Description: 
 	Interface:   
 		[Service Consumer Interfaces]
-		Name:          ManipulatorCommonInterface_Common
+		Name:          manipulatorCommonInterface_Common
 		Type:          JARA_ARM::ManipulatorCommonInterface_Common
 		Description:   
 		Argument:      
@@ -97,11 +97,11 @@ Lang Type:
 		Exception:     
 		PreCondition:  
 		PostCondition: 
-	PortName:    ManipulatorCommonInterface_MiddleLevel
+	PortName:    manipulatorCommonInterface_MiddleLevel
 	Description: 
 	Interface:   
 		[Service Consumer Interfaces]
-		Name:          ManipulatorCommonInterface_MiddleLevel
+		Name:          manipulatorCommonInterface_MiddleLevel
 		Type:          JARA_ARM::ManipulatorCommonInterface_Middle
 		Description:   
 		Argument:      

@@ -7,33 +7,34 @@
 
 #include "TrajectoryPlannerSVC_impl.h"
 
+
 /*
  * Example implementational code for IDL interface Manipulation::MotionGeneratorService
  */
-MotionGeneratorServiceSVC_impl::MotionGeneratorServiceSVC_impl()
+Manipulation_MotionGeneratorServiceSVC_impl::Manipulation_MotionGeneratorServiceSVC_impl()
+{
+  // Please add extra constructor code here.
+}
+
+
+Manipulation_MotionGeneratorServiceSVC_impl::~Manipulation_MotionGeneratorServiceSVC_impl()
 {
   // Please add extra destructor code here.
 }
 
-
-MotionGeneratorServiceSVC_impl::~MotionGeneratorServiceSVC_impl()
-{
-  // Please add extra destructor code here.
-}
 
 /*
  * Methods corresponding to IDL attributes and operations
  */
-void MotionGeneratorServiceSVC_impl::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
+Manipulation::ReturnValue* Manipulation_MotionGeneratorServiceSVC_impl::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
 {
-	m_rtcPtr->followManipPlan(manipPlan);
+  return m_rtcPtr->followManipPlan(manipPlan);
 }
 
-void MotionGeneratorServiceSVC_impl::getCurrentRobotJointInfo(const Manipulation::RobotIdentifier& robotID, Manipulation::RobotJointInfo_out robotJoint)
+Manipulation::ReturnValue* Manipulation_MotionGeneratorServiceSVC_impl::getCurrentRobotJointAngles(Manipulation::JointAngleSeq_out jointAngles)
 {
-	m_rtcPtr->getCurrentRobotJointInfo(robotID,robotJoint);
+  return m_rtcPtr->getCurrentRobotJointInfo(jointAngles);
 }
-
 
 
 // End of example implementational code
