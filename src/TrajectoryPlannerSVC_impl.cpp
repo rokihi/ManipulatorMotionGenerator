@@ -36,12 +36,12 @@ Manipulation::ReturnValue* Manipulation_MotionGeneratorServiceSVC_impl::getCurre
   return m_rtcPtr->getCurrentRobotJointInfo(jointAngles);
 }
 
-void MotionGeneratorServiceSVC_impl::openGripper()
+void Manipulation_MotionGeneratorServiceSVC_impl::openGripper()
 {
 	m_rtcPtr->openGripper();
 }
 
-void MotionGeneratorServiceSVC_impl::moveGripper(CORBA::Long percentage)
+void Manipulation_MotionGeneratorServiceSVC_impl::moveGripper(CORBA::Long percentage)
 {
 	m_rtcPtr->moveGripper(percentage);
 }

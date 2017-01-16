@@ -168,18 +168,21 @@ void ManipulatorMotionGeneratorRTC::moveGripper(const int per){
 
 Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
 {
-	 for(int i =0;i<manipPlan.manipPath.length(); i++){
-	   for(int j=0;j<maniPlan.manipPath[i].length()-1;j++){//last joint angle is gripper
+         std::cout <<"waypoint: "<<manipPlan.manipPath.length()<<std::endl;
+  	 for(int i =0;i<manipPlan.manipPath.length(); i++){
+	   for(int j=0;j<manipPlan.manipPath[i].length();j++){
 	          std::cout << manipPlan.manipPath[i][j].data << " ";
 		  }
 		  std::cout <<std::endl;
 	  }
 
 	JARA_ARM::JointPos_var jpos = new JARA_ARM::JointPos();
-    m_manipulatorCommonInterface_Common->getFeedbackPosJoint(jpos);
+        //m_manipulatorCommonInterface_Common->getFeedbackPosJoint(jpos);
+	jpos->length(manipPlan.manipPath[0].length());
 
 	for (int i = 0; i<manipPlan.manipPath.length(); i++){
-		for(int j=0; j<manipPlan.manipPath[i].length()-1; j++){
+	        std::cout<<"waypoint: "<<i<<std::endl;
+		for(int j=0; j<manipPlan.manipPath[i].length(); j++){
 			jpos[j] = manipPlan.manipPath[i][j].data;
 		}
 		m_manipulatorCommonInterface_MiddleLevel->movePTPJointAbs(jpos);
@@ -195,7 +198,7 @@ Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::getCurrentRobotJointIn
 	JARA_ARM::JointPos_var pos = new JARA_ARM::JointPos();
 	m_manipulatorCommonInterface_Common->getFeedbackPosJoint(pos);
 	for(int i=0; i<jointAngles->length(); i++){
-		   jointAngles[i].data = (*pos)[i];
+		   jointAngles[i].data = pos[i];
 	}
 	Manipulation::ReturnValue_var result(new Manipulation::ReturnValue());
 	result->id = Manipulation::OK;
