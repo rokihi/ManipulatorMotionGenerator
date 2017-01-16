@@ -189,9 +189,18 @@ Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::followManipPlan(const 
 Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::getCurrentRobotJointInfo(Manipulation::JointAngleSeq_out jointAngles){
 	JARA_ARM::JointPos_var pos = new JARA_ARM::JointPos();
 	m_manipulatorCommonInterface_Common->getFeedbackPosJoint(pos);
-	for(int i=0; i<jointAngles->length(); i++){
-		   jointAngles[i].data = pos[i];
+    printf("current joint angles: %4.4f %4.4f %4.4f %4.4f %4.4f %4.4f\n", pos[0],pos[1],pos[2],pos[3],pos[4],pos[5]);
+
+	Manipulation::JointAngleSeq_var tmpAngles;
+	tmpAngles = new Manipulation::JointAngleSeq();
+	tmpAngles->length(pos->length());
+
+	for(int i=0; i<tmpAngles->length(); i++){
+		tmpAngles[i].data = pos[i];
 	}
+	jointAngles = tmpAngles._retn();
+
+
 	Manipulation::ReturnValue_var result(new Manipulation::ReturnValue());
 	result->id = Manipulation::OK;
 	result->message = CORBA::string_dup("OK");
