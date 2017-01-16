@@ -221,8 +221,6 @@ class ManipulatorMotionGeneratorRTC
 
    Manipulation::ReturnValue* followManipPlan(const Manipulation::ManipulationPlan& manipPlan);
    Manipulation::ReturnValue* getCurrentRobotJointInfo(Manipulation::JointAngleSeq_out jointAngles);
-   void openGripper();
-   void moveGripper(const int per);
 
  protected:
   // <rtc-template block="protected_attribute">

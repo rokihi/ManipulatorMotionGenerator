@@ -158,14 +158,6 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onRateChanged(RTC::UniqueId ec_
 }
 */
 
-void ManipulatorMotionGeneratorRTC::openGripper(){
-	m_manipulatorCommonInterface_MiddleLevel->openGripper();
-}
-
-void ManipulatorMotionGeneratorRTC::moveGripper(const int per){
-	m_manipulatorCommonInterface_MiddleLevel->moveGripper(per);
-}
-
 Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
 {
          std::cout <<"waypoint: "<<manipPlan.manipPath.length()<<std::endl;
