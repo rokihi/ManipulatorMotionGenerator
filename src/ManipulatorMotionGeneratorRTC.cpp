@@ -168,6 +168,10 @@ Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::followManipPlan(const 
 		  std::cout <<std::endl;
 	  }
 
+  	double accel_time=1.0;
+  	m_manipulatorCommonInterface_MiddleLevel->setAccelTimeJoint(accel_time);
+
+
 	JARA_ARM::JointPos_var jpos = new JARA_ARM::JointPos();
         //m_manipulatorCommonInterface_Common->getFeedbackPosJoint(jpos);
 	jpos->length(manipPlan.manipPath[0].length());
