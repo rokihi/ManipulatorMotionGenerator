@@ -160,7 +160,7 @@ RTC::ReturnCode_t ManipulatorMotionGeneratorRTC::onRateChanged(RTC::UniqueId ec_
 
 Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::followManipPlan(const Manipulation::ManipulationPlan& manipPlan)
 {
-         std::cout <<"waypoint: "<<manipPlan.manipPath.length()<<std::endl;
+         std::cout <<"path length: "<<manipPlan.manipPath.length()<<std::endl;
   	 for(int i =0;i<manipPlan.manipPath.length(); i++){
 	   for(int j=0;j<manipPlan.manipPath[i].length();j++){
 	          std::cout << manipPlan.manipPath[i][j].data << " ";
@@ -177,7 +177,10 @@ Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::followManipPlan(const 
 		for(int j=0; j<manipPlan.manipPath[i].length(); j++){
 			jpos[j] = manipPlan.manipPath[i][j].data;
 		}
-		m_manipulatorCommonInterface_MiddleLevel->movePTPJointAbs(jpos);
+		JARA_ARM::RETURN_ID_var result;
+		result = new JARA_ARM::RETURN_ID();
+		result = m_manipulatorCommonInterface_MiddleLevel->movePTPJointAbs(jpos);
+		std::cout << result->id << std::endl;
 	}
 
 	Manipulation::ReturnValue_var result(new Manipulation::ReturnValue());
@@ -189,7 +192,7 @@ Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::followManipPlan(const 
 Manipulation::ReturnValue* ManipulatorMotionGeneratorRTC::getCurrentRobotJointInfo(Manipulation::JointAngleSeq_out jointAngles){
 	JARA_ARM::JointPos_var pos = new JARA_ARM::JointPos();
 	m_manipulatorCommonInterface_Common->getFeedbackPosJoint(pos);
-    printf("current joint angles: %4.4f %4.4f %4.4f %4.4f %4.4f %4.4f\n", pos[0],pos[1],pos[2],pos[3],pos[4],pos[5]);
+	printf("current joint angles[%d]: %4.4f %4.4f %4.4f %4.4f %4.4f %4.4f\n", pos->length(), pos[0],pos[1],pos[2],pos[3],pos[4],pos[5]);
 
 	Manipulation::JointAngleSeq_var tmpAngles;
 	tmpAngles = new Manipulation::JointAngleSeq();
